@@ -1,270 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Italian Brainrot - News & Culture</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Brainrot Dictionary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #ffa500;
+            --accent-color: #1e90ff;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            overflow: hidden;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e9ecef 100%);
+            color: var(--text-color);
+            line-height: 1.6;
         }
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: var(--primary-color);
             color: white;
-            padding: 40px 20px;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        h1 {
             text-align: center;
+            margin: 1rem 0;
+            font-size: 2.5rem;
+            animation: rainbow 4s infinite;
         }
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        @keyframes rainbow {
+            0%, 100% { color: var(--primary-color); }
+            16.67% { color: #ff6347; }
+            33.33% { color: var(--secondary-color); }
+            50% { color: #ffff00; }
+            66.67% { color: var(--accent-color); }
+            83.33% { color: #9370db; }
         }
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        .content {
-            padding: 40px 20px;
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
         .intro {
-            background: #f8f9fa;
-            padding: 20px;
-            border-left: 5px solid #667eea;
-            margin-bottom: 40px;
-            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 3rem;
         }
-        .intro h2 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        .personality {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-            align-items: center;
-            background: #f0f4ff;
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid #667eea;
-        }
-        .personality:nth-child(even) {
-            grid-template-columns: 1fr 1fr;
-            direction: rtl;
-        }
-        .personality:nth-child(even) > * {
-            direction: ltr;
-        }
-        .personality-image {
+        .header-img {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+        }
+        .intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        #search {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            outline: none;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s ease;
+        }
+        #search:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+        }
+        .terms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .term-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+        .term-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2em;
-            text-align: center;
-            font-weight: bold;
-            padding: 20px;
+            gap: 0.5rem;
         }
-        .personality-info h3 {
-            color: #1e3c72;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        .personality-info .era {
-            color: #764ba2;
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-        }
-        .personality-info .origin {
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-        }
-        .personality-info p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .background {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-            border-left: 4px solid #ffc107;
-        }
-        .background strong {
-            color: #856404;
-        }
-        .news-section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 30px;
+        .term-img {
+            width: 60px;
+            height: 60px;
             border-radius: 10px;
-            border: 2px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        .news-section h2 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+        .term-card:hover .term-img {
+            transform: scale(1.1);
         }
-        .news-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .news-item h4 {
-            color: #667eea;
-            margin-bottom: 5px;
+        .term-card p {
+            margin: 1rem 0 0 0;
+            font-weight: 400;
         }
         footer {
-            background: #f8f9fa;
-            padding: 20px;
+            background: var(--text-color);
+            color: white;
             text-align: center;
-            color: #666;
-            border-top: 2px solid #ddd;
+            padding: 1rem 0;
+            margin-top: 3rem;
         }
-        @media (max-width: 768px) {
-            .personality {
-                grid-template-columns: 1fr;
-            }
-            .personality:nth-child(even) {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 1.8em;
-            }
+        .popularity {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🇮🇹 Italian Brainrot 🇮🇹</h1>
-            <p>The Legacy of Italian Internet Culture & Meme Icons</p>
-        </header>
-        
-        <div class="content">
-            <div class="intro">
-                <h2>What is Italian Brainrot?</h2>
-                <p>Italian Brainrot refers to the unique subculture of Italian internet personalities, memes, and viral moments that have shaped online culture in Italy and beyond. From eccentric TV personalities to modern content creators, these figures have become legendary in their own right, creating unforgettable moments of absurdity and entertainment.</p>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/page1">Page 1</a>
+            <a href="/page2">Page 2</a>
+            <a href="/page4">Page 4</a>
+        </nav>
+        <h1>Italian Brainrot Dictionary</h1>
+    </header>
+    <main>
+        <section class="intro">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Italian Brainrot Meme" class="header-img">
+            <p>The "Italian Brainrot" universe is a surreal meme trend that exploded from early 2025, characterized by bizarre hybrid creatures created by AI, accompanied by "fake Italian" names (often ending with -ini, -ello, -ino) and addictive music. Below is a list of the most prominent characters in this universe.</p>
+        </section>
+        <section class="dictionary">
+            <input type="text" id="search" placeholder="Search terms...">
+            <div class="terms">
+                <div class="term-card">
+                    <h3>Tung tung tung sahur <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Tung_tung_tung_sahur_(cropped).webp" alt="Tung Tung Icon" class="term-img"></h3>
+                    <p>A creature holding drumsticks. Although originating from the Indonesian Ramadan meme, this character has been 'Italianized' and become an indispensable part of the Brainrot universe.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Br Br Patapim <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Br Br Icon" class="term-img"></h3>
+                    <p>A nonsensical sound or phrase that mimics Italian onomatopoeia. Used in brainrot videos to add humor or confusion, often with sharks or bizarre scenarios.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Tralalero tralala <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Tralalero_Tralala.webp" alt="Tralalero Icon" class="term-img"></h3>
+                    <p>Considered the 'father' of this trend. This is the image of a blue shark wearing Nike sneakers on its long fin legs, often appearing with explosion effects.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Porco Dio <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Porco Dio Icon" class="term-img"></h3>
+                    <p>Italian for "pig God," used as an exclamation of surprise or frustration in memes. Often combined with Allah for extra absurdity.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Damn bro, you look like... <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Damn Bro Icon" class="term-img"></h3>
+                    <p>A common phrase in Italian brainrot videos where the TTS voice comments on someone's appearance in a humorous, exaggerated way.</p>
+                </div>
+                <div class="term-card">
+                    <h3>AI Slop <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="AI Slop Icon" class="term-img"></h3>
+                    <p>Refers to low-quality AI-generated content that's flooding the internet. Italian brainrot often features such "slop" images with funny voices.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Cursed Images <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Cursed Images Icon" class="term-img"></h3>
+                    <p>Disturbing or weird AI-generated pictures paired with Italian TTS. The essence of brainrot humor.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Bombardiro Crocodilo <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Bombardiro_Crocodillo.jpg" alt="Bombardiro Crocodilo Icon" class="term-img"></h3>
+                    <p>A hybrid creature between a crocodile and a WWII bomber. This character is controversial because the song lyrics often touch on sensitive topics.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Ballerina Cappuccina <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Ballerina Cappuccina Icon" class="term-img"></h3>
+                    <p>A ballet dancer with a head that is a steaming cup of Cappuccino. She is famous for her graceful appearance but accompanied by a deep male voice.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Chimpanzini Bananini <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/ChimpanziniBananini.webp" alt="Chimpanzini Bananini Icon" class="term-img"></h3>
+                    <p>A monkey with a body that is a banana.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Lirilì Larilà <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Liril%C3%AC_Laril%C3%A0.webp" alt="Lirilì Larilà Icon" class="term-img"></h3>
+                    <p>A bipedal elephant with a body that is a cactus and wearing house slippers.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Cappuccino Assassino <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Cappucino_assasino.webp" alt="Cappuccino Assassino Icon" class="term-img"></h3>
+                    <p>A cup of coffee dressed as a ninja, wearing a Naruto headband and holding a katana sword.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Frigo Camelo <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Frigo_Camelo.png" alt="Frigo Camelo Icon" class="term-img"></h3>
+                    <p>A camel equipped with cooling devices (refrigerators) on its back.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Rhino Toasterino <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Rhino Toasterino Icon" class="term-img"></h3>
+                    <p>A combination of a rhinoceros and a toaster.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Gorillo Watermellondrillo <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gorillo Watermellondrillo Icon" class="term-img"></h3>
+                    <p>A gorilla hybrid with a watermelon.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Bananita Dolfinita <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Bananita Dolfinita Icon" class="term-img"></h3>
+                    <p>A dolphin with a body that is a banana.</p>
+                </div>
+                <div class="term-card">
+                    <h3>La Vaca Saturno Saturnita <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="La Vaca Saturno Saturnita Icon" class="term-img"></h3>
+                    <p>A cow with Saturn's rings surrounding it.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Brr Brr Patapim <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Brr_brr_patapim.jpg" alt="Brr Brr Patapim Icon" class="term-img"></h3>
+                    <p>A hybrid creature between a proboscis monkey and plants.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Blueberrini Octopussini <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Blueberrini Octopussini Icon" class="term-img"></h3>
+                    <p>An octopus hybrid with blueberries.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Panettone Stallone <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Panettone Stallone Icon" class="term-img"></h3>
+                    <p>A combination of Panettone cake and the Rambo figure.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Chef Crabracadabra <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Chef Crabracadabra Icon" class="term-img"></h3>
+                    <p>A crab in chef's attire.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Svinino Bombondino <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Svinino Bombondino Icon" class="term-img"></h3>
+                    <p>A piglet hugging a bomb about to explode.</p>
+                </div>
             </div>
-
-            <!-- Personality 1 -->
-            <div class="personality">
-                <div class="personality-image">
-                    [Image: Enzo Salvi - The Wild Entertainer]
-                </div>
-                <div class="personality-info">
-                    <h3>Enzo Salvi</h3>
-                    <div class="era">📺 Era: 1980s - 1990s</div>
-                    <div class="origin">📍 Origin: Turin, Italy</div>
-                    <p>Enzo Salvi was an iconic Italian TV personality and comedian known for his unpredictable behavior, wild gestures, and absurd humor on game shows.</p>
-                    <div class="background">
-                        <strong>Background Story:</strong> Starting as a game show participant, Salvi became famous for his chaotic energy and nonsensical antics. His random outbursts, bizarre commentary, and eccentric costume choices made him a cult figure in Italian television. Clips of his appearances became early internet legends when shared online, inspiring countless memes about his frenzied broadcasting style.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Personality 2 -->
-            <div class="personality">
-                <div class="personality-image">
-                    [Image: Pippo Franco - The Maestro]
-                </div>
-                <div class="personality-info">
-                    <h3>Pippo Franco</h3>
-                    <div class="era">📺 Era: 1970s - 2000s</div>
-                    <div class="origin">📍 Origin: Rome, Italy</div>
-                    <p>An Italian actor and comedian who became famous for television variety shows and his distinctive comedic style with sharp wit and physical humor.</p>
-                    <div class="background">
-                        <strong>Background Story:</strong> Pippo Franco rose to fame through Italian television variety shows in the 1970s. His ability to perform in Italian, English, and other languages, combined with his impeccable comedic timing, made him a household name. His old clips have resurged as retro memes, with internet users celebrating his golden-age Italian TV aesthetic and his fearless approach to comedy.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Personality 3 -->
-            <div class="personality">
-                <div class="personality-image">
-                    [Image: Giancarlo Biondo - The Talk Show Legend]
-                </div>
-                <div class="personality-info">
-                    <h3>Giancarlo Biondo</h3>
-                    <div class="era">📺 Era: 1990s - 2010s</div>
-                    <div class="origin">📍 Origin: Milan, Italy</div>
-                    <p>Known for his explosive reactions and dramatic moments on Italian talk shows, Biondo became the face of passionate Italian television personality.</p>
-                    <div class="background">
-                        <strong>Background Story:</strong> Biondo's tendency toward theatrical reactions and over-the-top expressions during interviews made him instantly recognizable. His countless viral moments—from eye-rolling to animated hand gestures—have been memed extensively online. He represents the pinnacle of Italian television dramatics, with fans celebrating his unfiltered personality and dramatic flair that perfectly embodies the spirit of brainrot content.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Personality 4 -->
-            <div class="personality">
-                <div class="personality-image">
-                    [Image: Maurizio Costanzo - The Interviewer]
-                </div>
-                <div class="personality-info">
-                    <h3>Maurizio Costanzo</h3>
-                    <div class="era">📺 Era: 1980s - Present</div>
-                    <div class="origin">📍 Origin: Rome, Italy</div>
-                    <p>A renowned talk show host famous for "The Costanzo Show," known for awkward silences, bizarre guest pairings, and surreal television moments.</p>
-                    <div class="background">
-                        <strong>Background Story:</strong> Costanzo is legendary for hosting one of Italy's most chaotic talk shows. His stoic demeanor contrasted with absurd situations, guest confrontations, and strange segments created perfect meme material. The show's awkward atmosphere and Costanzo's deadpan reactions became iconic representations of surreal television. Modern audiences rediscover his work through compilations highlighting the sheer chaos of 80s and 90s Italian TV production.
-                    </div>
-                </div>
-            </div>
-
-            <!-- News Section -->
-            <div class="news-section">
-                <h2>📰 Recent Italian Brainrot News</h2>
-                <div class="news-item">
-                    <h4>🔥 Viral Nostalgia: 90s Italian TV Clips Take Over TikTok</h4>
-                    <p>A resurgence of classic Italian television moments has taken social media by storm, with Gen Z discovering the absurdist entertainment of decades past. Clips of legendary personalities are being reshared millions of times, introducing new audiences to the golden age of Italian broadcasting chaos.</p>
-                </div>
-                <div class="news-item">
-                    <h4>🎬 Documentary Series in Development</h4>
-                    <p>Several streaming platforms are in talks to produce documentaries about the cultural impact of Italian television personalities and the birth of Italian internet meme culture, promising behind-the-scenes stories and rare footage.</p>
-                </div>
-                <div class="news-item">
-                    <h4>👥 Community Meetups & Conventions</h4>
-                    <p>Italian Brainrot fan communities have organized numerous meetups across Italy and internationally, celebrating the culture with screenings, discussions, and celebrations of the personalities who created this unique entertainment legacy.</p>
-                </div>
-                <div class="news-item">
-                    <h4>📱 New Content Creators Embrace the Aesthetic</h4>
-                    <p>Young Italian content creators are deliberately adopting the unfiltered, chaotic style of classic Italian television, creating new content that pays homage to the brainrot era while adding modern twists and contemporary humor.</p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 Italian Brainrot Encyclopedia | Celebrating the Golden Age of Chaotic Italian Television</p>
-        </footer>
-    </div>
+        </section>
+        <section class="popularity">
+            <p>This trend has become so popular that it has spawned collectible cards (like Skifidol Italian Brainrot) and games on platforms like Roblox such as Steal a Brainrot.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Italian Brainrot Dictionary. All rights reserved. Powered by AI.</p>
+    </footer>
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.term-card');
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
