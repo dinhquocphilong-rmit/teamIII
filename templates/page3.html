@@ -1,9 +1,270 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page 3</title>
+    <title>Italian Brainrot - News & Culture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 20px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 40px;
+            border-radius: 5px;
+        }
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .personality {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+            background: #f0f4ff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+        }
+        .personality:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        .personality:nth-child(even) > * {
+            direction: ltr;
+        }
+        .personality-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .personality-info h3 {
+            color: #1e3c72;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .personality-info .era {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .personality-info .origin {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .personality-info p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .background {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        .background strong {
+            color: #856404;
+        }
+        .news-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+        .news-section h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .news-item h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #ddd;
+        }
+        @media (max-width: 768px) {
+            .personality {
+                grid-template-columns: 1fr;
+            }
+            .personality:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Page 3</h1>
+    <div class="container">
+        <header>
+            <h1>🇮🇹 Italian Brainrot 🇮🇹</h1>
+            <p>The Legacy of Italian Internet Culture & Meme Icons</p>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>What is Italian Brainrot?</h2>
+                <p>Italian Brainrot refers to the unique subculture of Italian internet personalities, memes, and viral moments that have shaped online culture in Italy and beyond. From eccentric TV personalities to modern content creators, these figures have become legendary in their own right, creating unforgettable moments of absurdity and entertainment.</p>
+            </div>
+
+            <!-- Personality 1 -->
+            <div class="personality">
+                <div class="personality-image">
+                    [Image: Enzo Salvi - The Wild Entertainer]
+                </div>
+                <div class="personality-info">
+                    <h3>Enzo Salvi</h3>
+                    <div class="era">📺 Era: 1980s - 1990s</div>
+                    <div class="origin">📍 Origin: Turin, Italy</div>
+                    <p>Enzo Salvi was an iconic Italian TV personality and comedian known for his unpredictable behavior, wild gestures, and absurd humor on game shows.</p>
+                    <div class="background">
+                        <strong>Background Story:</strong> Starting as a game show participant, Salvi became famous for his chaotic energy and nonsensical antics. His random outbursts, bizarre commentary, and eccentric costume choices made him a cult figure in Italian television. Clips of his appearances became early internet legends when shared online, inspiring countless memes about his frenzied broadcasting style.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personality 2 -->
+            <div class="personality">
+                <div class="personality-image">
+                    [Image: Pippo Franco - The Maestro]
+                </div>
+                <div class="personality-info">
+                    <h3>Pippo Franco</h3>
+                    <div class="era">📺 Era: 1970s - 2000s</div>
+                    <div class="origin">📍 Origin: Rome, Italy</div>
+                    <p>An Italian actor and comedian who became famous for television variety shows and his distinctive comedic style with sharp wit and physical humor.</p>
+                    <div class="background">
+                        <strong>Background Story:</strong> Pippo Franco rose to fame through Italian television variety shows in the 1970s. His ability to perform in Italian, English, and other languages, combined with his impeccable comedic timing, made him a household name. His old clips have resurged as retro memes, with internet users celebrating his golden-age Italian TV aesthetic and his fearless approach to comedy.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personality 3 -->
+            <div class="personality">
+                <div class="personality-image">
+                    [Image: Giancarlo Biondo - The Talk Show Legend]
+                </div>
+                <div class="personality-info">
+                    <h3>Giancarlo Biondo</h3>
+                    <div class="era">📺 Era: 1990s - 2010s</div>
+                    <div class="origin">📍 Origin: Milan, Italy</div>
+                    <p>Known for his explosive reactions and dramatic moments on Italian talk shows, Biondo became the face of passionate Italian television personality.</p>
+                    <div class="background">
+                        <strong>Background Story:</strong> Biondo's tendency toward theatrical reactions and over-the-top expressions during interviews made him instantly recognizable. His countless viral moments—from eye-rolling to animated hand gestures—have been memed extensively online. He represents the pinnacle of Italian television dramatics, with fans celebrating his unfiltered personality and dramatic flair that perfectly embodies the spirit of brainrot content.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personality 4 -->
+            <div class="personality">
+                <div class="personality-image">
+                    [Image: Maurizio Costanzo - The Interviewer]
+                </div>
+                <div class="personality-info">
+                    <h3>Maurizio Costanzo</h3>
+                    <div class="era">📺 Era: 1980s - Present</div>
+                    <div class="origin">📍 Origin: Rome, Italy</div>
+                    <p>A renowned talk show host famous for "The Costanzo Show," known for awkward silences, bizarre guest pairings, and surreal television moments.</p>
+                    <div class="background">
+                        <strong>Background Story:</strong> Costanzo is legendary for hosting one of Italy's most chaotic talk shows. His stoic demeanor contrasted with absurd situations, guest confrontations, and strange segments created perfect meme material. The show's awkward atmosphere and Costanzo's deadpan reactions became iconic representations of surreal television. Modern audiences rediscover his work through compilations highlighting the sheer chaos of 80s and 90s Italian TV production.
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="news-section">
+                <h2>📰 Recent Italian Brainrot News</h2>
+                <div class="news-item">
+                    <h4>🔥 Viral Nostalgia: 90s Italian TV Clips Take Over TikTok</h4>
+                    <p>A resurgence of classic Italian television moments has taken social media by storm, with Gen Z discovering the absurdist entertainment of decades past. Clips of legendary personalities are being reshared millions of times, introducing new audiences to the golden age of Italian broadcasting chaos.</p>
+                </div>
+                <div class="news-item">
+                    <h4>🎬 Documentary Series in Development</h4>
+                    <p>Several streaming platforms are in talks to produce documentaries about the cultural impact of Italian television personalities and the birth of Italian internet meme culture, promising behind-the-scenes stories and rare footage.</p>
+                </div>
+                <div class="news-item">
+                    <h4>👥 Community Meetups & Conventions</h4>
+                    <p>Italian Brainrot fan communities have organized numerous meetups across Italy and internationally, celebrating the culture with screenings, discussions, and celebrations of the personalities who created this unique entertainment legacy.</p>
+                </div>
+                <div class="news-item">
+                    <h4>📱 New Content Creators Embrace the Aesthetic</h4>
+                    <p>Young Italian content creators are deliberately adopting the unfiltered, chaotic style of classic Italian television, creating new content that pays homage to the brainrot era while adding modern twists and contemporary humor.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Italian Brainrot Encyclopedia | Celebrating the Golden Age of Chaotic Italian Television</p>
+        </footer>
+    </div>
 </body>
 </html>
