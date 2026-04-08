@@ -1,2 +1,0 @@
-# teamIII
-long binh minh
